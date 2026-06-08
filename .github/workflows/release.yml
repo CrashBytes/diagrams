@@ -38,6 +38,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Debug OIDC availability
+        run: |
+          echo "ID_TOKEN_URL present: ${ACTIONS_ID_TOKEN_REQUEST_URL:+YES}"
+          echo "ID_TOKEN_TOKEN present: ${ACTIONS_ID_TOKEN_REQUEST_TOKEN:+YES}"
+
       - name: Publish to npm with Provenance
         run: |
           echo "publish using npm $(npm --version) on node $(node --version)"
