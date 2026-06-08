@@ -25,9 +25,7 @@ jobs:
           # NO registry-url - prevents .npmrc conflicts with OIDC
 
       - name: Upgrade npm for Trusted Publishing (needs >= 11.5.1)
-        run: |
-          npm install -g npm@latest
-          echo "npm now: $(npm --version)  node: $(node --version)"
+        run: npm install -g npm@latest
 
       - name: Install dependencies
         run: npm ci
@@ -38,15 +36,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Debug OIDC availability
-        run: |
-          echo "ID_TOKEN_URL present: ${ACTIONS_ID_TOKEN_REQUEST_URL:+YES}"
-          echo "ID_TOKEN_TOKEN present: ${ACTIONS_ID_TOKEN_REQUEST_TOKEN:+YES}"
-
       - name: Publish to npm with Provenance
-        run: |
-          echo "publish using npm $(npm --version) on node $(node --version)"
-          npm publish --provenance --access public --loglevel verbose
+        run: npm publish --provenance --access public
         # OIDC authentication via GitHub Actions - no tokens needed!
 
       - name: Create GitHub Release
