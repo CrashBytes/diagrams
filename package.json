@@ -1,6 +1,6 @@
 {
   "name": "@crashbytes/diagrams",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Programmatic text-to-diagram generation with fluent TypeScript API. Renders to Mermaid markdown. Zero dependencies.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
